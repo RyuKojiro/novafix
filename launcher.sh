@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/tcsh
 
-DYLD_INSERT_LIBRARIES=libNova.A.dylib
-DYLD_FORCE_FLAT_NAMESPACE=1
+setenv DYLD_INSERT_LIBRARIES ${PWD}/libNova.A.dylib
+setenv DYLD_FORCE_FLAT_NAMESPACE 1
 
-/Applications/EV Nova.app/Contents/MacOS/EV Nova
+/Applications/EV\ Nova.app/Contents/MacOS/EV\ Nova
