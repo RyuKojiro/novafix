@@ -2,6 +2,12 @@
 
 A quick and dirty fix for EV Nova on OS X El Capitan.
 
+## tl;dr
+
+1. Clone the repo
+2. Run `make`
+3. Run `./launcher.sh`
+
 ## The Problem
 
 	2015-10-07 22:52:07.530 EV Nova[17753:652894] 22:52:07.530 WARNING:  140: This application, or a library it uses, is using the deprecated Carbon Component Manager for hosting Audio Units. Support for this will be removed in a future release. Also, this makes the host incompatible with version 3 audio units. Please transition to the API's in AudioComponent.h.
@@ -22,16 +28,17 @@ Particularly the last bit about `CGSSetWindowDepthLimit`. That's what keeps it f
 
 ## The Solution
 
-The Console message gives you the problem. By disassembling `CGSSetWindowDepthLimit` on a machine that still has it, you can see it's a no-op, so injecting one doesn't hurt.
+The Console message above lets you know exactly what it needs. By disassembling `CGSSetWindowDepthLimit` on a machine that still has it, you can see it's a no-op (see note below), so injecting one doesn't hurt.
 
 libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
 
 If your copy of EV Nova happens to not be in `/Applications/EV Nova.app`, simply adjust the path at the end of launcher.sh.
 	
-## A note to Ambrosia SW
+## A Note to Ambrosia Software
 
 This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. It is already a no-op anyways.
 
+	(lldb) disass -n CGSSetWindowDepthLimit
 	CoreGraphics`CGSSetWindowDepthLimit:
 	CoreGraphics[0x3bed8a]:  pushq  %rbp
 	CoreGraphics[0x3bed8b]:  movq   %rsp, %rbp
@@ -39,4 +46,4 @@ This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. It is alr
 	CoreGraphics[0x3bed90]:  popq   %rbp
 	CoreGraphics[0x3bed91]:  retq   
 
-P.S. I don't actually expect to fix it. I've been watching your site, I know EV is abandonware, that's why this exists.
+P.S. I don't actually expect you to fix it. I've been watching your site, I know EV is abandonware, that's why this exists.
