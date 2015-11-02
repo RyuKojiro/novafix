@@ -4,9 +4,18 @@ A quick and dirty fix for EV Nova on OS X El Capitan.
 
 ## tl;dr
 
+If you want it to fix the application bundle so that you can just launch EV Nova as you normally would:
+
+1. Clone the repo
+2. Run `make install`
+
+If you don't want to touch the application bundle:
+
 1. Clone the repo
 2. Run `make`
 3. Run `./launcher.sh`
+
+If your copy of EV Nova happens to not be in `/Applications/EV Nova.app`, you'll need adjust the `EVROOT` variable in both the `Makefile` and the `install.sh` to contain the path to your bundle.
 
 ## The Problem
 
@@ -32,8 +41,6 @@ The Console message above lets you know exactly what it needs. By disassembling 
 
 libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
 
-If your copy of EV Nova happens to not be in `/Applications/EV Nova.app`, simply adjust the path at the end of launcher.sh.
-	
 ## A Note to Ambrosia Software
 
 This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. It is already a no-op anyways.
