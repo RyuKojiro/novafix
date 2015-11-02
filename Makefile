@@ -14,5 +14,9 @@ install: $(LIB)
 	install $(LAUNCHER) $(EVROOT)/$(EVBIN)
 	install $(LIB) $(EVROOT)
 
+uninstall:
+	mv $(EVROOT)/$(EVBIN).original $(EVROOT)/$(EVBIN)
+	rm -f $(EVROOT)/$(LIB)
+
 clean:
 	rm -rf $(OBJS)
