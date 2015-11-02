@@ -9,7 +9,7 @@ If you want it to fix the application bundle so that you can just launch EV Nova
 1. Clone the repo
 2. Run `make install`
 
-If you don't want to touch the application bundle:
+If you don't want to touch the application bundle (even though you can always `make uninstall`):
 
 1. Clone the repo
 2. Run `make`
