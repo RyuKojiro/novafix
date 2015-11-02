@@ -1,9 +1,10 @@
 OBJS=spi.o
 CFLAGS+=-arch i386
 LDFLAGS+=-dynamiclib -arch i386
+LIB=libNova.A.dylib
 
-libNova.A.dylib: spi.o
-	$(CC) $(LDFLAGS) $(OBJS) -o libNova.A.dylib
+$(LIB): $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $(LIB)
 
 clean:
 	rm -rf $(OBJS)
