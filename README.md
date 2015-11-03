@@ -37,13 +37,7 @@ Particularly the last bit about `CGSSetWindowDepthLimit`. That's what keeps it f
 
 ## The Solution
 
-The Console message above lets you know exactly what it needs. By disassembling `CGSSetWindowDepthLimit` on a machine that still has it, you can see it's a no-op (see note below), so injecting one doesn't hurt.
-
-libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
-
-## A Note to Ambrosia Software
-
-This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. It is already a no-op anyways.
+The Console message above lets you know exactly what it needs. By disassembling `CGSSetWindowDepthLimit` on a machine that still has it, you can see it's a no-op (see below), so injecting one doesn't hurt.
 
 	(lldb) disass -n CGSSetWindowDepthLimit
 	CoreGraphics`CGSSetWindowDepthLimit:
@@ -53,4 +47,10 @@ This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. It is alr
 	CoreGraphics[0x3bed90]:  popq   %rbp
 	CoreGraphics[0x3bed91]:  retq   
 
-P.S. I don't actually expect you to fix it. I've been watching your site, I know EV is abandonware, that's why this exists.
+libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
+
+## A Note to Ambrosia Software
+
+This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. Or do something awesome like release the source to your cool games.
+
+P.S. I don't actually expect you to fix it. I know EV is abandonware.
