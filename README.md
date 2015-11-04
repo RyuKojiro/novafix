@@ -15,7 +15,7 @@ If you don't want to touch the application bundle (even though you can always `m
 2. Run `make`
 3. Run `./launcher.sh`
 
-If your copy of EV Nova happens to not be in `/Applications/EV Nova.app`, you'll need adjust the `EVROOT` variable in both the `Makefile` and the `install.sh` to contain the path to your bundle.
+If your copy of EV Nova happens to not be in `/Applications/EV Nova.app`, you'll need adjust the `EVROOT` variable in both the `Makefile` and the `launcher.sh` to contain the path to your bundle.
 
 ## The Problem
 
