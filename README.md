@@ -2,6 +2,8 @@
 
 A quick and dirty fix for EV Nova on OS X El Capitan.
 
+A super-automatic installer resides [here](https://dl.dropboxusercontent.com/u/80746794/novafix.pkg), for those of you that stumbled upon this and don't have Xcode installed.
+
 ## tl;dr
 
 If you want it to fix the application bundle so that you can just launch EV Nova as you normally would:
