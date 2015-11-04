@@ -1,15 +1,13 @@
 #!/bin/sh
-
-EVROOT="/Applications/EV Nova.app/Contents/MacOS/"
+WD=`dirname "$0"`
 EVBIN="Ev Nova"
 
 export DYLD_FORCE_FLAT_NAMESPACE=1
+export DYLD_INSERT_LIBRARIES="$WD/libNova.A.dylib"
 
-if [ -e "${EVROOT}/${EVBIN}.original" ]
+if [ -e "$WD/$EVBIN.original" ]
 then
-	export DYLD_INSERT_LIBRARIES=${EVROOT}/libNova.A.dylib
-	"${EVROOT}/${EVBIN}.original"
+	"$WD/$EVBIN.original"
 else
-	export DYLD_INSERT_LIBRARIES=`dirname $0`/libNova.A.dylib
-	"${EVROOT}/${EVBIN}"
+	"/Applications/EV Nova.app/Contents/MacOS/$EVBIN"
 fi
