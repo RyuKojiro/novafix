@@ -50,9 +50,3 @@ The Console message above lets you know exactly what it needs. By disassembling 
 	CoreGraphics[0x3bed91]:  retq   
 
 libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
-
-## A Note to Ambrosia Software
-
-This is easy to fix. Simply remove the call to CGSSetWindowDepthLimit. Or do something awesome like release the source to your cool games.
-
-P.S. I don't actually expect you to fix it. I know EV is abandonware.
