@@ -1,8 +1,8 @@
 # novafix
 
-A quick and dirty fix for EV Nova on OS X El Capitan.
+A quick and dirty fix for EV Nova on OS X El Capitan and beyond.
 
-A super-automatic installer resides [here](https://dl.dropboxusercontent.com/u/80746794/novafix.pkg), for those of you that stumbled upon this and don't have Xcode installed.
+A super-automatic installer resides [here](https://gist.github.com/RyuKojiro/08450e9c0d2a0c5fff2a03634e5ddd0f/raw/52d9c915a6762025bd6446392e2deea5a50f1c15/novafix.pkg), for those of you that stumbled upon this and don't have Xcode installed.
 
 ## tl;dr
 
