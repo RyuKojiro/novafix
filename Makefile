@@ -23,4 +23,4 @@ uninstall:
 	rm -f $(EVROOT)/$(LIB)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(LIB)
