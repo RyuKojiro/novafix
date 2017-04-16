@@ -50,3 +50,7 @@ The Console message above lets you know exactly what it needs. By disassembling 
 	CoreGraphics[0x3bed91]:  retq   
 
 libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLimit`. Using dyld's environment variables, it is injected before anything else, and the namespace is flattened, via launcher.sh.
+
+## Troubleshooting
+
+There is an issue that I believe to be related to dyld caching, which will cause the dynamic linker to no longer be able to find `_gliCreateContextWithShared` from the GLEngine bundle inside of the OpenGL framework. This often happens after an OS update. To fix this, uninstall novafix, run EV Nova once (allowing it to crash on start), and then reinstall novafix.
