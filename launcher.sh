@@ -13,7 +13,7 @@ fi
 
 if [ -e "$WD/$EVBIN.original" ]
 then
-	"$WD/$EVBIN.original"
+	exec "$WD/$EVBIN.original"
 else
-	"/Applications/EV Nova.app/Contents/MacOS/$EVBIN"
+	exec "/Applications/EV Nova.app/Contents/MacOS/$EVBIN"
 fi
