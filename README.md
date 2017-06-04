@@ -53,4 +53,8 @@ libNova.A.dylib is a dylib containing just a function named `CGSSetWindowDepthLi
 
 ## Troubleshooting
 
-There is an issue that I believe to be related to dyld caching, which will cause the dynamic linker to no longer be able to find `_gliCreateContextWithShared` from the GLEngine bundle inside of the OpenGL framework. This often happens after an OS update. To fix this, uninstall novafix (`make uninstall`), run EV Nova once (allowing it to crash on start), and then reinstall novafix.
+There is an issue that I believe to be related to dyld caching, which will cause the dynamic linker to no longer be able to find `_gliCreateContextWithShared` from the GLEngine bundle inside of the OpenGL framework. This often happens after an OS update. To fix this, run the original EV Nova binary once (allowing it to crash on start), and then it should start working again. Assuming your EV Nova is installed in the Applications folder, the command would be:
+
+```
+$ /Applications/EV\ Nova.app/Contents/MacOS/Ev\ Nova.original
+```
