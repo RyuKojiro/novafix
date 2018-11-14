@@ -1,5 +1,5 @@
 OBJS=spi.o
-CFLAGS+=-arch i386
+CFLAGS+=-arch i386 -Os
 LDFLAGS+=-dynamiclib -arch i386
 LIB=libNova.A.dylib
 EVROOT="/Applications/EV Nova.app/Contents/MacOS"
